@@ -88,7 +88,7 @@ void reverse(char *str) {
   }
   else
   {
-     while (*end != NULL) {
+     while (*end != '\0') {
        end++;
      }
      end--; // back up to the char before the nil
@@ -107,7 +107,7 @@ void reverse(char *str) {
 int main() {
   //char *origStr = "ipalindromei";
   char *origStr = "supercalifragilisticexpialidocious!";
-  char *testStr = (char *) malloc(strlen(origStr)+1);
+  char *testStr = (char *) malloc((strlen(origStr)+1)*sizeof(char));
   printf("origStr==%s\n", origStr);
   printf("pre strcpy testStr==%s\n", testStr);
   strcpy(testStr, origStr);
