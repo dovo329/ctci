@@ -1,5 +1,6 @@
-#include <stdlib.h>
+/*#include <stdlib.h>
 #include <stdio.h>
+
 
 void reverse(char *str){
   
@@ -71,5 +72,48 @@ int main(){
   else
     printf("reversible(null) failed\n");
 
+  return EXIT_SUCCESS;
+}*/
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+void reverse(char *str) {
+  char *end = str;
+  char tmp;
+  if (str == NULL) {
+    return;
+    
+  }
+  else
+  {
+     while (*end != NULL) {
+       end++;
+     }
+     end--; // back up to the char before the nil
+
+     while (str < end) {
+     	  tmp = *str;
+     	  *str = *end;
+     	  *end = tmp;
+     	  str++;
+     	  end--;
+     }
+  }
+}
+
+
+int main() {
+  //char *origStr = "ipalindromei";
+  char *origStr = "supercalifragilisticexpialidocious!";
+  char *testStr = (char *) malloc(strlen(origStr)+1);
+  printf("origStr==%s\n", origStr);
+  printf("pre strcpy testStr==%s\n", testStr);
+  strcpy(testStr, origStr);
+  printf("post strcpy testStr==%s\n", testStr);
+  reverse(testStr);
+  printf("reverse(\"%s\")==%s\n", origStr, testStr);
+  
   return EXIT_SUCCESS;
 }
