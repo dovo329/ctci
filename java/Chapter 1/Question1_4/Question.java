@@ -1,10 +1,34 @@
 package Question1_4;
 
-import CtCILibrary.AssortedMethods;
+public class Question {
+	
+	public static String reformatSpaces(String str) {
+		StringBuilder strBuild = new StringBuilder(str.length());
+		
+		for (int i=0; i<str.length(); i++) {
+			if (str.charAt(i) == ' ') {
+				strBuild.append("%20");
+			} else {
+				strBuild.append(str.charAt(i));
+			}
+		}
+		return strBuild.toString();
+	}
+	
+	public static void main(String [] args) {
+		String testStr = "Replace all the spaces in this string with %20 instead.";
+		
+		System.out.printf("%s\n", reformatSpaces(testStr));
+	}
+}
+
+/*import CtCILibrary.AssortedMethods;
 
 public class Question {
 	// Assume string has sufficient free space at the end
-	public static void replaceSpaces(char[] str, int length) {
+	
+	  public static void replaceSpaces(char[] str, int length) {
+	 
 		int spaceCount = 0, index, i = 0;
 		for (i = 0; i < length; i++) {
 			if (str[i] == ' ') {
@@ -35,4 +59,4 @@ public class Question {
 		replaceSpaces(arr, str.length());	
 		System.out.println("\"" + AssortedMethods.charArrayToString(arr) + "\"");
 	}
-}
+}*/
