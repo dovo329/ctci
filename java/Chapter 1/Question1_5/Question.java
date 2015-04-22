@@ -1,6 +1,37 @@
 package Question1_5;
 
 public class Question {
+	
+	public static String compressStr(String str) {
+		StringBuilder strBld = new StringBuilder(str.length());
+		int charRunCnt = 1;
+				
+		for (int i=1; i<str.length(); i++) {
+			if (str.charAt(i-1) == str.charAt(i)) {
+				charRunCnt++;
+			} else {
+				strBld.append(str.charAt(i-1));
+				strBld.append(charRunCnt);
+				charRunCnt = 1;
+			}
+		}
+		strBld.append(str.charAt(str.length()-1));
+		strBld.append(charRunCnt);
+		
+		return strBld.toString();
+	}
+	
+	public static void main (String [] args) {
+		String testStr = "aabcccccaaa";
+		// should turn into a2b1c5a3
+		//System.out.printf("Hello World!");
+		System.out.printf("%s compressed is %s", testStr, compressStr(testStr));
+	}
+}
+
+/*package Question1_5;
+
+public class Question {
 
 	public static int setChar(char[] array, char c, int index, int count) {
 		array[index] = c;
@@ -107,3 +138,4 @@ public class Question {
 		System.out.println("Potential Compression: " + c);
 	}
 }
+*/
