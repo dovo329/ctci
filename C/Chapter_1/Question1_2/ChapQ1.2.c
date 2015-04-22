@@ -82,7 +82,7 @@ int main(){
 void reverse(char *str) {
   char *end = str;
   char tmp;
-  if (str == NULL) {
+  if (*str == '\0') {
     return;
     
   }
