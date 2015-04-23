@@ -1,5 +1,44 @@
 package Question2_1;
 
+import Question2_1.*;
+import java.util.Random;
+import java.util.ArrayList;
+
+public class Question {
+
+	public static int randInt(int min, int max) {
+		Random r = new Random();
+		if (max < min) {
+			System.out.printf("Oh no! an error in randInt because max < min\n");
+		}
+		return r.nextInt(max-min)+min;
+	}
+	
+	public static void main (String [] args) {
+		System.out.printf("Hello World\n");
+		
+		Node<Double> testNode = new Node<Double>(9.0187, null);
+		System.out.printf("testNode=%s\n", testNode.toString());
+		
+		ArrayList<Node> nodeArr = new ArrayList<>();
+		Node<Integer> prevNode = null;
+		/*for (int i=0; i<10; i++) {
+			nodeArr.add(i, null);
+		}*/
+		for (int i=9; i>=0; i--) {
+			//nodeArr.add(i, new Node<Integer>(randInt(0,2), prevNode));
+			nodeArr.add(new Node<Integer>(i, prevNode));
+			prevNode = nodeArr.get(0);
+		}
+		
+		for (int i=0; i<nodeArr.size(); i++) {
+			System.out.printf("nodeArr[%d]=%s\n", i, nodeArr.get(i));
+		}
+	}
+}
+
+/*package Question2_1;
+
 import java.util.HashSet;
 import java.util.Hashtable;
 
@@ -8,7 +47,7 @@ import CtCILibrary.LinkedListNode;
 
 public class Question {
 	public static void deleteDupsA(LinkedListNode n) {
-		HashSet<Integer> set = new HashSet<Integer>();
+		HashSet<Integer> set = new HashSet<Int)eger>();
 		LinkedListNode previous = null;
 		while (n != null) {
 			if (set.contains(n.data)) {
@@ -33,20 +72,20 @@ public class Question {
 					LinkedListNode tmp = current.next;
 					previous.next = tmp;
 					current = tmp;
-					/* We know we can't have more than one dup preceding
-					 * our element since it would have been removed 
-					 * earlier. */
+					// We know we can't have more than one dup preceding
+					// our element since it would have been removed 
+					// earlier.
 				    break;
 				}
 				runner = runner.next;
 			}
 			
-			/* If runner == current, then we didn't find any duplicate 
-			 * elements in the previous for loop.  We then need to 
-			 * increment current.  
-			 * If runner != current, then we must have hit the ‘break’ 
-			 * condition, in which case we found a dup and current has
-			 * already been incremented.*/
+			// If runner == current, then we didn't find any duplicate 
+			// elements in the previous for loop.  We then need to 
+			// increment current.  
+			// If runner != current, then we must have hit the ï¿½breakï¿½ 
+			// condition, in which case we found a dup and current has
+			// already been incremented.
 			if (runner == current) {
 				previous = current;
 		        current = current.next;
@@ -59,7 +98,7 @@ public class Question {
 		
 		LinkedListNode current = head;
 		while (current != null) {
-			/* Remove all future nodes that have the same value */
+			// Remove all future nodes that have the same value
 			LinkedListNode runner = current;
 			while (runner.next != null) { 
 				if (runner.next.data == current.data) {
@@ -89,3 +128,4 @@ public class Question {
 		deleteDupsC(clone);
 	}
 }
+*/
