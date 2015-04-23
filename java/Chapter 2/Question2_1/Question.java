@@ -27,8 +27,8 @@ public class Question {
 		}*/
 		for (int i=9; i>=0; i--) {
 			//nodeArr.add(i, new Node<Integer>(randInt(0,2), prevNode));
-			nodeArr.add(new Node<Integer>(i, prevNode));
-			prevNode = nodeArr.get(0);
+			nodeArr.add(new Node<Integer>(9-i, prevNode));
+			prevNode = nodeArr.get((9-i));
 		}
 		
 		for (int i=0; i<nodeArr.size(); i++) {
