@@ -3,18 +3,6 @@ package DVQuestion2_2;
 import DVQuestion2_2.*;
 import java.util.Random;
 
-/**
- * @author douglas
- *
- */
-/**
- * @author douglas
- *
- */
-/**
- * @author douglas
- *
- */
 public class DVQuestion {
 
 	public static int randInt(int min, int max) {
@@ -34,22 +22,24 @@ public class DVQuestion {
 		return start;
 	}
 	
-	public static DVLinkedListNode findKthToLastElement(int k, DVLinkedListNode n) {
+	public static DVLinkedListNode findKthToLastElement(int k, DVLinkedListNode n, IntWrapper numIter) {
 		DVLinkedListNode runner1 =  n;
 		DVLinkedListNode runner2 =  n;
 		
+		numIter.value = 0;
 		// advance runner2 a fixed "k" number of nodes ahead of runner 1
 		for (int i=0; i<k; i++) {
 			if (runner2 == null) {
 				return null;
 			}
-			runner2 = runner2.next;
+			runner2 = runner2.next;			
 		}
 		// now advance to the end of the list, incrementing both runner1 and runner2, until runner2 reaches end of list
 		// then runner1 will be at the kth to last element of the list
 		while (runner2 != null) {
 			runner1 = runner1.next;
 			runner2 = runner2.next;
+			numIter.value++;
 		}
 		return runner1;
 	}
@@ -74,7 +64,8 @@ public class DVQuestion {
 		DVLinkedListNode n=makeRandomLinkedList(10);
 		printLinkedList(n);
 		int k = 3;
-		DVLinkedListNode kthToEndNode = findKthToLastElement(k, n);
-		System.out.printf("%d ToEndNode is %d\n", k, kthToEndNode.data);
+		IntWrapper numIter = new IntWrapper(-1);
+		DVLinkedListNode kthToEndNode = findKthToLastElement(k, n, numIter);
+		System.out.printf("%d ToEndNode is %d found after %d iterations from start\n", k, kthToEndNode.data, numIter.value);
 	}
 }
