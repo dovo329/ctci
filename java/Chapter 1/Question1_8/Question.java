@@ -1,6 +1,25 @@
 package Question1_8;
 
 public class Question {
+
+	public static boolean isSubstring(String big, String small) {
+		return (big.indexOf(small) >= 0); 
+	}
+	
+	public static void main(String [] args) {
+		String testStr = "waterbottle";
+		String rotStr = "erbottlewat";
+		
+		String doubledStr = testStr + testStr;
+		
+		System.out.printf("%s %s a rotation of %s\n", rotStr, isSubstring(testStr, rotStr)?"is indeed":"ain't", testStr);
+		System.out.printf("testStr == %s\n", doubledStr);
+		System.out.printf("%s %s a rotation of %s\n", rotStr, isSubstring(doubledStr, rotStr)?"is indeed":"ain't", testStr);
+	}
+}
+/*package Question1_8;
+
+public class Question {
 	public static boolean isSubstring(String big, String small) {
 		if (big.indexOf(small) >= 0) {
 			return true;
@@ -11,9 +30,9 @@ public class Question {
 	
 	public static boolean isRotation(String s1, String s2) {
 	    int len = s1.length();
-	    /* check that s1 and s2 are equal length and not empty */
+	    // check that s1 and s2 are equal length and not empty 
 	    if (len == s2.length() && len > 0) { 
-	    	/* concatenate s1 and s1 within new buffer */
+	    	// concatenate s1 and s1 within new buffer 
 	    	String s1s1 = s1 + s1;
 	    	return isSubstring(s1s1, s2);
 	    }
@@ -31,3 +50,4 @@ public class Question {
 	}
 
 }
+*/
