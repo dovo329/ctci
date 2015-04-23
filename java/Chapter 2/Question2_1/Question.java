@@ -1,5 +1,48 @@
 package Question2_1;
 
+import java.util.Random;
+import java.util.HashSet;
+import java.util.LinkedList;
+
+public class Question {
+	
+	public static void removeDuplicates(LinkedList ll) {
+		HashSet<Integer> hashSet = new HashSet<Integer>();
+		for (int i=0; i<ll.size(); i++) {
+			System.out.printf("ll(%d)=%s\n", i, ll.get(i));
+			if (hashSet.contains(ll.get(i))) {
+				ll.remove(i);
+				i--;
+			} else {
+				hashSet.add((Integer)ll.get(i));
+			}
+		}
+	}
+	
+	public static int randInt(int min, int max) {
+		Random r = new Random();
+		if (max < min) {
+			System.out.printf("Oh no! an error in randInt because max < min\n");
+		}
+		int returnInt = r.nextInt(max-min+1)+min;
+		//System.out.printf("returnInt=%d\n", returnInt);
+		return returnInt;
+	}
+	
+	public static void main(String [] args) {
+		System.out.println("Hello World!");
+		
+		LinkedList ll = new LinkedList();
+		for (int i=0; i<10; i++) {
+			ll.add(randInt(0,10));			
+		}
+		System.out.println("Before removeDuplicates ll="+ll);
+		removeDuplicates(ll);
+		System.out.println("After removeDuplicates ll="+ll);
+	}
+}
+
+/*
 import Question2_1.*;
 import java.util.Random;
 import java.util.ArrayList;
@@ -50,18 +93,18 @@ public class Question {
 		
 		ArrayList<Node> nodeArr = new ArrayList<>();
 		Node<Integer> prevNode = null;
-		/*for (int i=0; i<10; i++) {
-			nodeArr.add(i, null);
-		}*/
+		//for (int i=0; i<10; i++) {
+		//	nodeArr.add(i, null);
+		//}
 		for (int i=9; i>=0; i--) {
 			nodeArr.add(new Node<Integer>(randInt(0,9), prevNode));
 			//nodeArr.add(new Node<Integer>(i, prevNode));
 			prevNode = nodeArr.get((9-i));
 		}
 		
-		/*for (int i=0; i<nodeArr.size(); i++) {
-			System.out.printf("nodeArr[%d]=%s\n", i, nodeArr.get(i));
-		}*/
+		//for (int i=0; i<nodeArr.size(); i++) {
+		//	System.out.printf("nodeArr[%d]=%s\n", i, nodeArr.get(i));
+		//}
 		traverseLinkedList(nodeArr.get(nodeArr.size()-1));
 		System.out.printf("\n\n");
 		removeDuplicatesLinkedList(nodeArr.get(nodeArr.size()-1));
@@ -69,6 +112,7 @@ public class Question {
 		traverseLinkedList(nodeArr.get(nodeArr.size()-1));
 	}
 }
+*/
 
 /*package Question2_1;
 

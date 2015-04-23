@@ -1,5 +1,20 @@
 package Question1_6;
 
+public class Question {
+	private double [][] data;
+	
+	public Matrix
+	
+	
+	
+	public static void main (String [] args) {
+		System.out.printf("Hello World!");
+	}
+}
+
+/*package Question1_6;
+
+
 import CtCILibrary.*;
 
 public class Question {
@@ -36,3 +51,4 @@ public class Question {
 	}
 
 }
+*/

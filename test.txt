@@ -1,0 +1,54 @@
+Hello World
+testNode=data==9.0187 next is indeed null
+returnInt=0
+returnInt=4
+returnInt=8
+returnInt=7
+returnInt=2
+returnInt=8
+returnInt=1
+returnInt=0
+returnInt=7
+returnInt=0
+node=data==0 next is not null
+node=data==7 next is not null
+node=data==0 next is not null
+node=data==1 next is not null
+node=data==8 next is not null
+node=data==2 next is not null
+node=data==7 next is not null
+node=data==8 next is not null
+node=data==4 next is not null
+node=data==0 next is indeed null
+
+
+node=data==0 next is not null
+no duplicate, adding 0 to hashSet
+node=data==7 next is not null
+no duplicate, adding 7 to hashSet
+node=data==0 next is not null
+removing duplicate
+node=data==1 next is not null
+no duplicate, adding 1 to hashSet
+node=data==8 next is not null
+no duplicate, adding 8 to hashSet
+node=data==2 next is not null
+no duplicate, adding 2 to hashSet
+node=data==7 next is not null
+removing duplicate
+node=data==8 next is not null
+removing duplicate
+node=data==4 next is not null
+no duplicate, adding 4 to hashSet
+node=data==0 next is indeed null
+removing duplicate
+
+
+After removing duplicates
+
+node=data==0 next is not null
+node=data==7 next is not null
+node=data==1 next is not null
+node=data==8 next is not null
+node=data==2 next is not null
+node=data==4 next is indeed null
