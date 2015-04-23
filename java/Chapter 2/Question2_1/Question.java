@@ -3,15 +3,43 @@ package Question2_1;
 import Question2_1.*;
 import java.util.Random;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Question {
 
+	public static void removeDuplicatesLinkedList(Node <Integer> n) {
+		HashSet<Integer> hashSet = new HashSet<Integer>();
+		Node <Integer> prev = null;
+		while (n != null) {			
+			System.out.printf("node=%s\n", n.toString());
+			if (hashSet.contains(n.getData())) {
+				//duplicate, must remove
+				System.out.printf("removing duplicate\n");
+				prev.setNext(n.getNext());				
+			} else {
+				hashSet.add((Integer)n.getData());
+				System.out.printf("no duplicate, adding %d to hashSet\n", (Integer)n.getData());
+				prev = n;
+			}				
+			n = n.getNext();
+		}
+	}
+	
+	public static void traverseLinkedList(Node n) {
+		while (n != null) {
+			System.out.printf("node=%s\n", n.toString());
+			n = n.getNext();
+		}
+	}
+	
 	public static int randInt(int min, int max) {
 		Random r = new Random();
 		if (max < min) {
 			System.out.printf("Oh no! an error in randInt because max < min\n");
 		}
-		return r.nextInt(max-min)+min;
+		int returnInt = r.nextInt(max-min)+min;
+		System.out.printf("returnInt=%d\n", returnInt);
+		return returnInt;
 	}
 	
 	public static void main (String [] args) {
@@ -26,14 +54,19 @@ public class Question {
 			nodeArr.add(i, null);
 		}*/
 		for (int i=9; i>=0; i--) {
-			//nodeArr.add(i, new Node<Integer>(randInt(0,2), prevNode));
-			nodeArr.add(new Node<Integer>(9-i, prevNode));
+			nodeArr.add(new Node<Integer>(randInt(0,9), prevNode));
+			//nodeArr.add(new Node<Integer>(i, prevNode));
 			prevNode = nodeArr.get((9-i));
 		}
 		
-		for (int i=0; i<nodeArr.size(); i++) {
+		/*for (int i=0; i<nodeArr.size(); i++) {
 			System.out.printf("nodeArr[%d]=%s\n", i, nodeArr.get(i));
-		}
+		}*/
+		traverseLinkedList(nodeArr.get(nodeArr.size()-1));
+		System.out.printf("\n\n");
+		removeDuplicatesLinkedList(nodeArr.get(nodeArr.size()-1));
+		System.out.printf("\n\nAfter removing duplicates\n\n");
+		traverseLinkedList(nodeArr.get(nodeArr.size()-1));
 	}
 }
 
