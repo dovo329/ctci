@@ -68,9 +68,20 @@ public class DVQuestion {
 		return n;
 	}
 	
-	public static void deleteNodeInMiddleOfSinglyLinkedList(DVLinkedListNode n) {
-		n.data = n.next.data;
-		n.next = n.next.next;
+	public static boolean deleteNodeInMiddleOfSinglyLinkedList(DVLinkedListNode n) {
+		DVLinkedListNode nNext = n.next;
+		if (n==null) {
+			return false;
+		} else if (nNext==null) {
+			n.data = 97238947;
+			n.next = null;
+			n = null;
+			return true;
+		} else {
+			n.data = nNext.data;
+			n.next = nNext.next;
+			return true;
+		}
 	}
 	
 	public static void main (String [] args) {				
@@ -78,9 +89,12 @@ public class DVQuestion {
 		System.out.println("Before deleting mid element");
 		printLinkedList(n);
 		
-		DVLinkedListNode midNode = advanceXNodesInLinkedList(5, n);
+		DVLinkedListNode midNode = advanceXNodesInLinkedList(10, n);
 		System.out.printf("midNode = %d\n", midNode.data);
-		deleteNodeInMiddleOfSinglyLinkedList(midNode);
+		if (!deleteNodeInMiddleOfSinglyLinkedList(midNode))
+		{
+			System.out.println("midNode was too close to the end of the linked list to delete it");
+		}
 		System.out.println("After deleting mid element");
 		printLinkedList(n);		
 	}
