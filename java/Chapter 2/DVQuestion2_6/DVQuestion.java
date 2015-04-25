@@ -1,10 +1,11 @@
 package DVQuestion2_6;
 
 import java.util.Random;
+import java.util.HashSet;
 
 public class DVQuestion {
 
-	public static final int randSeed = 2;
+	public static final int randSeed = 125;
 	public static Random r = new Random(randSeed);
 	public static boolean bigEndian = true;
 	
@@ -60,11 +61,35 @@ public class DVQuestion {
 		}	
 		System.out.print("\n");
 	}
+	
+	public static int detectCircleStartNode(DVLinkedListNode n)
+	{
+		HashSet<DVLinkedListNode> nodeSet = new HashSet<DVLinkedListNode>(); 
+		int circStartI = 0;
+		while (n!=null && !nodeSet.contains(n)) {
+			nodeSet.add(n);
+			circStartI++;
+			n=n.next;
+		}
+		return circStartI;
+	}
+	
+	public static DVLinkedListNode getNodeInLinkedList(DVLinkedListNode n, int destIndex)
+	{
+		for (int i=0; i<destIndex && n != null; i++) {
+			n = n.next;
+		}
+		return n;
+	}
 
 	public static void main (String [] args) {
 		DVLinkedListNode n1=makeRandomCircularLinkedList(10, 5);
 		System.out.printf("n1: ");
 		printLinkedList(n1, 20);
+		int circStartIndex = detectCircleStartNode(n1);
+		DVLinkedListNode startCircNode = getNodeInLinkedList(n1, circStartIndex);
+		System.out.printf("circle start node is node %d which is value %d\n", circStartIndex, startCircNode.data);
+		
 		
 	}
 }
